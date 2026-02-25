@@ -12,13 +12,13 @@ myDiv.appendChild(paragraph);
 var ul = document.createElement("ul");
 
 var li1 = document.createElement("li")
-li1.innerHTML = "Item One";
+li1.innerHTML = "Item 1";
 
 var li2 = document.createElement("li")
-li2.innerHTML = "Item Two";
+li2.innerHTML = "Item 2";
 
 var li3 = document.createElement("li")
-li3.innerHTML = "Item Three";
+li3.innerHTML = "Item 3";
 
 ul.appendChild(li1);
 ul.appendChild(li2);
@@ -27,6 +27,11 @@ ul.appendChild(li3);
 myDiv.appendChild(ul);
 
 var newItemCounter = 0;
+
+var button = document.createElement("button")
+button.innerHTML = "Click Me";
+myDiv.appendChild(button);
+
 
 function getRandomColor() {
     var letters = "0123456789ABCDEF";
@@ -38,18 +43,16 @@ function getRandomColor() {
     return color;
 }
 
-var button = document.getElementById("addItemButton");
 
 button.addEventListener("click", function() {
+    newItemCounter = ul.children.length
+    newItemCounter++;
 
-    newItemCount++;
+    var newlist = document.createElement("li")
+    newlist.textContent = "Item " + newItemCounter;
+    newlist.style.color = getRandomColor()
 
-    var newL1 = document.createElement("l1");
-    newL1.innerHTML = "New List Item " + newItemCount;
-
-    newL1.style.color = getRandomColor();
-
-    ul.appendChild(newL1);
+    ul.appendChild(newlist);
 });
 
 myDiv.addEventListener("click", function() {
