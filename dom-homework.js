@@ -34,4 +34,24 @@ function getRandomColor() {
     for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
+    
+    return color;
 }
+
+var button = document.getElementById("addItemButton");
+
+button.addEventListener("click", function() {
+
+    newItemCount++;
+
+    var newL1 = document.createElement("l1");
+    newL1.innerHTML = "New List Item " + newItemCount;
+
+    newL1.style.color = getRandomColor();
+
+    ul.appendChild(newL1);
+});
+
+myDiv.addEventListener("click", function() {
+    myDiv.style.backgroundColor = getRandomColor();
+});
